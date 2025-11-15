@@ -18,7 +18,7 @@
   <div class="portfolio-grid">
     <% projects.forEach(p => { %>
       <div class="project">
-        <div class="project-images">
+        <div class="project-images images-<%= p.images.length %>">
           <% p.images.forEach(img => { %>
             <img src="/uploads/<%= img %>" alt="<%= p.name %>" onclick="openModal('/uploads/<%= img %>','<%= p.name %>')">
           <% }) %>
