@@ -1,18 +1,17 @@
-function openModal(src, title) {
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  const captionBox = document.getElementById("caption");
+function openModal(filename) {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
 
-  modal.style.display = "flex";
-  modalImg.src = src;
-
-  captionBox.innerText = title || "";
+  modal.style.display = 'flex';
+  modalImg.src = '/uploads/' + filename;
 }
 
 function closeModal(event) {
-  const modal = document.getElementById("modal");
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
 
-  if (event.target === modal || event.target.classList.contains("close")) {
-    modal.style.display = "none";
+  if (event.target === modal || event.target.classList.contains('close')) {
+    modal.style.display = 'none';
+    modalImg.src = '';
   }
 }
