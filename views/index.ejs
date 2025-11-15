@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Substance Painter Portfolio</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- Hero Section -->
+<header class="hero">
+  <h1>Theo Moss</h1>
+</header>
+
+<!-- Portfolio Section -->
+<section class="portfolio-section">
+  <div class="portfolio-grid">
+    <% projects.forEach(p => { %>
+      <div class="project" onclick="openModal('<%= p.image %>', '<%= p.name %>')">
+        <img src="/uploads/<%= p.image %>" alt="<%= p.name %>">
+        <div class="overlay">
+          <h3><%= p.name %></h3>
+          <p><%= p.description %></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+<!-- About Me Section -->
+<section class="about-section">
+  <h2>About Me</h2>
+  <p>Hello, I'm Theo and I've been making textures on adobe 3d substacne painter since Decembner 2024, I have also began making tools for texturing such as DTR on my github and maps for games, specifically descenders on Unity 2017.</p>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <h2>Contact Me</h2>
+  <p>You can reach out to me at: <a href="mailto:theojudemoss@gmail.com">theojudemoss@gmail.com</a></p>
+  <p>Check out my GitHub: <a href="https://github.com/THEE-OH" target="_blank">https://github.com/THEE-OH</a></p>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="closeModal(event)">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modal-img">
+  <div id="caption"></div>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

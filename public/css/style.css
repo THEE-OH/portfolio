@@ -1,0 +1,63 @@
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', sans-serif; background:#0e0e0e; color:#fff; }
+a { text-decoration:none; color:#7d94ff; }
+a:hover { color:#5c74d1; text-decoration: underline; }
+
+/* Hero Section */
+.hero { text-align:center; padding:50px 20px; background:linear-gradient(135deg,#111,#1a1a1a); color:#7d94ff; }
+.hero h1 { font-size:2.5rem; margin:0; }
+
+/* Portfolio */
+.portfolio-section { padding:50px 20px; max-width:1400px; margin:auto; }
+.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; }
+
+.project { position:relative; overflow:hidden; border-radius:15px; cursor:pointer; transition: transform 0.4s, box-shadow 0.4s; background:#1a1a1a; box-shadow:0 4px 15px rgba(125,148,255,0.1);}
+.project img { width:100%; height:100%; object-fit:cover; transition: transform 0.4s;}
+.project:hover img { transform: scale(1.08); }
+
+.overlay { position:absolute; bottom:0; left:0; right:0; padding:15px; background:linear-gradient(to top,rgba(0,0,0,0.85),rgba(0,0,0,0)); color:#fff; opacity:0; transition:opacity 0.3s;}
+.project:hover .overlay { opacity:1; }
+.overlay h3 { font-size:1.5rem; }
+.overlay p { font-size:1rem; color:#aaa; }
+
+/* Modal */
+.modal { display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; }
+.modal-content { max-width:90%; max-height:80%; border-radius:12px; box-shadow:0 0 40px rgba(125,148,255,0.3); animation:zoomIn 0.3s;}
+@keyframes zoomIn { from{transform:scale(0.8);opacity:0;} to{transform:scale(1);opacity:1;} }
+.close { position:absolute; top:30px; right:40px; font-size:40px; color:#7d94ff; cursor:pointer; transition: color 0.3s;}
+.close:hover { color:#5c74d1; }
+
+/* Admin Panel */
+form { display:flex; flex-direction:column; max-width:500px; margin:20px auto; gap:10px; }
+input, textarea, button { padding:12px; border-radius:8px; border:none; font-size:16px; }
+input, textarea { background:#222; color:#fff; }
+input::placeholder, textarea::placeholder { color:#aaa; }
+button { background:#7d94ff; color:#111; font-weight:bold; cursor:pointer; transition: background-color 0.3s;}
+button:hover { background:#5c74d1; }
+
+/* Projects list in admin */
+ul { list-style:none; margin-top:20px; }
+ul li { padding:8px 0; border-bottom:1px solid #333; }
+
+/* About & Contact Sections */
+.about-section, .contact-section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  background: #111;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.about-section h2, .contact-section h2 {
+  color: #7d94ff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.about-section p, .contact-section p {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

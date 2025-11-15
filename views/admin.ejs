@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="hero">
+  <h1>Admin Panel</h1>
+</header>
+
+<section>
+<h2>Add New Project</h2>
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="text" name="title" placeholder="Project Title" required>
+  <textarea name="description" placeholder="Project Description"></textarea>
+  <input type="file" name="image" accept="image/*" required>
+  <button type="submit">Upload Project</button>
+</form>
+
+<h2>Existing Projects</h2>
+<ul>
+  <% projects.forEach((p, index) => { %>
+    <li>
+      <strong><%= p.name %></strong> - <%= p.image %>
+      <form action="/delete/<%= index %>" method="POST" style="display:inline;">
+        <button type="submit" style="background:#ff4444; color:#fff; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Delete</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+</section>
+</body>
+</html>
