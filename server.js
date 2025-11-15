@@ -17,8 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// Load projects
-let projects = require('./projects.json');
+// Load projects safely
+let projects = [];
+try {
+  projects = JSON.parse(fs.readFileSync('projects.json'));
+} catch (err) {
+  console.error('Could not read projects.json, starting with empty array.');
+}
 
 // Portfolio page
 app.get('/', (req, res) => {
@@ -32,13 +37,23 @@ app.get('/admin', (req, res) => {
 
 // Upload new project (up to 4 images)
 app.post('/upload', upload.array('images', 4), (req, res) => {
-  const { title, description } = req.body;
-  const images = req.files.map(file => file.filename);
+  try {
+    const { title, description } = req.body;
 
-  projects.push({ name: title, description, images });
-  fs.writeFileSync('projects.json', JSON.stringify(projects, null, 2));
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).send("No images uploaded");
+    }
 
-  res.redirect('/admin');
+    const images = req.files.map(file => file.filename);
+
+    projects.push({ name: title, description, images });
+    fs.writeFileSync('projects.json', JSON.stringify(projects, null, 2));
+
+    res.redirect('/admin');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Delete project
