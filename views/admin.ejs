@@ -15,15 +15,16 @@
 <form action="/upload" method="post" enctype="multipart/form-data">
   <input type="text" name="title" placeholder="Project Title" required>
   <textarea name="description" placeholder="Project Description"></textarea>
-  <input type="file" name="image" accept="image/*" required>
+  <input type="file" name="images" accept="image/*" multiple required>
   <button type="submit">Upload Project</button>
+  <p><small>You can upload up to 4 images per project.</small></p>
 </form>
 
 <h2>Existing Projects</h2>
 <ul>
   <% projects.forEach((p, index) => { %>
     <li>
-      <strong><%= p.name %></strong> - <%= p.image %>
+      <strong><%= p.name %></strong> - <%= p.images.length %> image(s)
       <form action="/delete/<%= index %>" method="POST" style="display:inline;">
         <button type="submit" style="background:#ff4444; color:#fff; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Delete</button>
       </form>

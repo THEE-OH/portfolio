@@ -17,8 +17,10 @@
 <section class="portfolio-section">
   <div class="portfolio-grid">
     <% projects.forEach(p => { %>
-      <div class="project" onclick="openModal('<%= p.image %>', '<%= p.name %>')">
-        <img src="/uploads/<%= p.image %>" alt="<%= p.name %>">
+      <div class="project">
+        <% p.images.forEach(img => { %>
+          <img src="/uploads/<%= img %>" alt="<%= p.name %>" onclick="openModal('/uploads/<%= img %>','<%= p.name %>')">
+        <% }) %>
         <div class="overlay">
           <h3><%= p.name %></h3>
           <p><%= p.description %></p>
@@ -31,7 +33,7 @@
 <!-- About Me Section -->
 <section class="about-section">
   <h2>About Me</h2>
-  <p>Hello, I'm Theo and I've been making textures on adobe 3d substance painter since December 2024, I have also began making tools for texturing such as DTR on my github and maps for games, specifically descenders on Unity 2017.</p>
+  <p>Hello, I'm Theo and I've been making textures on Adobe 3D Substance Painter since December 2024. I also create texturing tools like DTR on my GitHub and maps for games, specifically Descenders on Unity 2017.</p>
 </section>
 
 <!-- Contact Section -->
