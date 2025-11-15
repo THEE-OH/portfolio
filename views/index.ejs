@@ -20,7 +20,11 @@
       <div class="project">
         <div class="project-images images-<%= p.images.length %>">
           <% p.images.forEach(img => { %>
-            <img src="/uploads/<%= img %>" alt="<%= p.name %>" onclick="openModal('/uploads/<%= img %>','<%= p.name %>')">
+            <img 
+              src="/uploads/<%= img %>" 
+              alt="<%= p.name %>" 
+              onclick="openModal('/uploads/<%= img %>', '<%= p.name %>')"
+            >
           <% }) %>
         </div>
         <div class="overlay">
@@ -48,7 +52,7 @@
 <!-- Modal -->
 <div id="modal" class="modal" onclick="closeModal(event)">
   <span class="close">&times;</span>
-  <img class="modal-content" id="modal-img">
+  <img id="modal-img" class="modal-img">
   <div id="caption"></div>
 </div>
 

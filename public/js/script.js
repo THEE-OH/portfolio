@@ -1,23 +1,18 @@
-function openModal(filename, title) {
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const caption = document.getElementById('caption');
+function openModal(src, title) {
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const captionBox = document.getElementById("caption");
 
-  modal.style.display = 'flex';
-  modalImg.src = '/uploads/' + filename;
+  modal.style.display = "flex";
+  modalImg.src = src;
 
-  // Hide caption text in modal
-  caption.style.display = 'none';
+  captionBox.innerText = title || "";
 }
 
 function closeModal(event) {
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const caption = document.getElementById('caption');
+  const modal = document.getElementById("modal");
 
-  // Close modal if click is on modal background or X button
-  if (event.target === modal || event.target.classList.contains('close')) {
-    modal.style.display = 'none';
-    modalImg.src = '';
+  if (event.target === modal || event.target.classList.contains("close")) {
+    modal.style.display = "none";
   }
 }
