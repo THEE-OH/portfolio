@@ -18,9 +18,11 @@
   <div class="portfolio-grid">
     <% projects.forEach(p => { %>
       <div class="project">
-        <% p.images.forEach(img => { %>
-          <img src="/uploads/<%= img %>" alt="<%= p.name %>" onclick="openModal('/uploads/<%= img %>','<%= p.name %>')">
-        <% }) %>
+        <div class="project-images">
+          <% p.images.forEach(img => { %>
+            <img src="/uploads/<%= img %>" alt="<%= p.name %>" onclick="openModal('/uploads/<%= img %>','<%= p.name %>')">
+          <% }) %>
+        </div>
         <div class="overlay">
           <h3><%= p.name %></h3>
           <p><%= p.description %></p>
